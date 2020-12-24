@@ -50,7 +50,9 @@
 import Form from 'vform'
 
 export default {
-  middleware: 'guest',
+  head () {
+    return { title: this.$t('reset_password') }
+  },
 
   data: () => ({
     status: '',
@@ -62,21 +64,18 @@ export default {
     })
   }),
 
-  head () {
-    return { title: this.$t('reset_password') }
-  },
-
   created () {
     this.form.email = this.$route.query.email
     this.form.token = this.$route.params.token
   },
 
   methods: {
-    reset () {
-      this.form.post('/password/reset').then(({ data }) => {
-        this.status = data.status
-        this.form.reset()
-      })
+    async reset () {
+      const { data } = await this.form.post('/password/reset')
+
+      this.status = data.status
+
+      this.form.reset()
     }
   }
 }

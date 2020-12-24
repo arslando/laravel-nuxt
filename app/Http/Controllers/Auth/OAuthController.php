@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Exceptions\EmailTakenException;
 use App\Http\Controllers\Controller;
-use App\Models\OAuthProvider;
-use App\Models\User;
+use App\OAuthProvider;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -31,7 +31,7 @@ class OAuthController extends Controller
      * @param  string $provider
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function redirect($provider)
+    public function redirectToProvider($provider)
     {
         return [
             'url' => Socialite::driver($provider)->stateless()->redirect()->getTargetUrl(),
@@ -44,7 +44,7 @@ class OAuthController extends Controller
      * @param  string $driver
      * @return \Illuminate\Http\Response
      */
-    public function handleCallback($provider)
+    public function handleProviderCallback($provider)
     {
         $user = Socialite::driver($provider)->stateless()->user();
         $user = $this->findOrCreateUser($provider, $user);
@@ -63,7 +63,7 @@ class OAuthController extends Controller
     /**
      * @param  string $provider
      * @param  \Laravel\Socialite\Contracts\User $sUser
-     * @return \App\Models\User
+     * @return \App\User|false
      */
     protected function findOrCreateUser($provider, $user)
     {
@@ -90,7 +90,7 @@ class OAuthController extends Controller
     /**
      * @param  string $provider
      * @param  \Laravel\Socialite\Contracts\User $sUser
-     * @return \App\Models\User
+     * @return \App\User
      */
     protected function createUser($provider, $sUser)
     {

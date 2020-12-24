@@ -52,11 +52,12 @@ export default {
   },
 
   methods: {
-    send () {
-      this.form.post('/email/resend').then(({ data }) => {
-        this.status = data.status
-        this.form.reset()
-      })
+    async send () {
+      const { data } = await this.form.post('/email/resend')
+
+      this.status = data.status
+
+      this.form.reset()
     }
   }
 }

@@ -1,7 +1,7 @@
 import axios from 'axios'
-import Swal from 'sweetalert2'
+import swal from 'sweetalert2'
 
-// process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 
 export default ({ app, store, redirect }) => {
   axios.defaults.baseURL = process.env.apiUrl
@@ -33,8 +33,8 @@ export default ({ app, store, redirect }) => {
     const { status } = error.response || {}
 
     if (status >= 500) {
-      Swal.fire({
-        icon: 'error',
+      swal({
+        type: 'error',
         title: app.i18n.t('error_alert_title'),
         text: app.i18n.t('error_alert_text'),
         reverseButtons: true,
@@ -44,8 +44,8 @@ export default ({ app, store, redirect }) => {
     }
 
     if (status === 401 && store.getters['auth/check']) {
-      Swal.fire({
-        icon: 'warning',
+      swal({
+        type: 'warning',
         title: app.i18n.t('token_expired_alert_title'),
         text: app.i18n.t('token_expired_alert_text'),
         reverseButtons: true,

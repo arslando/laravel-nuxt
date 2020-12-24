@@ -2,16 +2,26 @@
 
 namespace Tests\Feature;
 
-use App\Models\User;
+use App\User;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
 class SettingsTest extends TestCase
 {
+    /** @var \App\User */
+    protected $user;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->user = factory(User::class)->create();
+    }
+
     /** @test */
     public function update_profile_info()
     {
-        $this->actingAs($user = User::factory()->create())
+        $this->actingAs($this->user)
             ->patchJson('/api/settings/profile', [
                 'name' => 'Test User',
                 'email' => 'test@test.app',
@@ -20,7 +30,7 @@ class SettingsTest extends TestCase
             ->assertJsonStructure(['id', 'name', 'email']);
 
         $this->assertDatabaseHas('users', [
-            'id' => $user->id,
+            'id' => $this->user->id,
             'name' => 'Test User',
             'email' => 'test@test.app',
         ]);
@@ -29,13 +39,13 @@ class SettingsTest extends TestCase
     /** @test */
     public function update_password()
     {
-        $this->actingAs($user = User::factory()->create())
+        $this->actingAs($this->user)
             ->patchJson('/api/settings/password', [
-                'password' => 'updated',
-                'password_confirmation' => 'updated',
+                'password' => 'updated1',
+                'password_confirmation' => 'updated1',
             ])
             ->assertSuccessful();
 
-        $this->assertTrue(Hash::check('updated', $user->password));
+        $this->assertTrue(Hash::check('updated1', $this->user->password));
     }
 }

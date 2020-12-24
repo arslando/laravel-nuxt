@@ -35,13 +35,13 @@ import { mapGetters } from 'vuex'
 export default {
   layout: 'simple',
 
-  data: () => ({
-    title: process.env.appName
-  }),
-
   head () {
     return { title: this.$t('home') }
   },
+
+  data: () => ({
+    title: process.env.appName
+  }),
 
   computed: mapGetters({
     authenticated: 'auth/check'

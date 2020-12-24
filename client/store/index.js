@@ -14,14 +14,14 @@ export const actions = {
     }
   },
 
-  nuxtClientInit ({ commit, getters }) {
+  nuxtClientInit ({ commit }) {
     const token = Cookies.get('token')
-    if (token && !getters['auth/token']) {
+    if (token) {
       commit('auth/SET_TOKEN', token)
     }
 
     const locale = Cookies.get('locale')
-    if (locale && !getters['lang/locale']) {
+    if (locale) {
       commit('lang/SET_LOCALE', { locale })
     }
   }
