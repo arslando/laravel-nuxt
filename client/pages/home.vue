@@ -14,11 +14,15 @@
               <h1 class="text-center mx-auto text-white home-page-landing-text">
                 Find en ledig bolig
               </h1>
-              <form action="#" class="banner-search-form p-2" method="POST">
+              <form class="banner-search-form p-2" method="POST">
                 <div class="form-row">
                   <div class="col-lg-12 col-12">
                     <div class="form-group mb-0">
-                      <search-location />
+                      <search-location
+                        :titlefield="'city'"
+                        :matchClass="'highlight'"
+                        aria-autocomplete="off"
+                      />
                     </div>
                   </div>
                 </div>
@@ -171,6 +175,7 @@ export default {
   },
   data() {
     return {
+      keyword: undefined,
       locations: [
         { name: 'København', count: 1794, background: 'destination-1.jpg' },
         { name: 'Aarhus', count: 398, background: 'destination-2.jpg' },
@@ -203,6 +208,22 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    keyword_search: function (_keyword, flag) {
+      console.log(_keyword);
+      this.keyword = _keyword;
+      this.search(flag);
+    },
+    search: function (gen_url) {
+      var newQuery = '';
+      if (this.keyword == undefined || this.keyword == '') {
+      } else {
+        newQuery = `?keyword=${this.keyword}`;
+      }
+      var new_url = `/lejeboliger${newQuery}`;
+      location.href = new_url;
+    }
   }
 };
 </script>
@@ -214,9 +235,9 @@ export default {
   padding-bottom: 270px;
 }
 .banner-search-form {
-    background: rgb(248 249 250 / 90%);
-    border-radius: 5px;
-    padding: 7px !important;
-    box-shadow: 0 0.3rem 2rem rgba(0, 0, 0, .50)!important;
+  background: rgb(248 249 250 / 90%);
+  border-radius: 5px;
+  padding: 7px !important;
+  box-shadow: 0 0.3rem 2rem rgba(0, 0, 0, 0.5) !important;
 }
 </style>
