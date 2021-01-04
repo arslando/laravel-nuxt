@@ -9,7 +9,7 @@ module.exports = {
 
   env: {
     apiUrl: process.env.API_URL || process.env.APP_URL + '/api',
-    appName: process.env.APP_NAME || 'Laravel Nuxt',
+    appName: process.env.APP_NAME || 'Ledigbolig - ledige boliger til leje i hele Danmark',
     appLocale: process.env.APP_LOCALE || 'en',
     githubAuth: !!process.env.GITHUB_CLIENT_ID
   },
@@ -20,7 +20,8 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+      { hid: 'keywords', name: 'keywords', content: 'Ledigbolig - ledige boliger til leje i hele Danmark' },
+      { hid: 'description', name: 'description', content: 'Søger du en ledig bolig? Mere end 6.000 lejeboliger herunder lejligheder, huse, værelser og deleboliger til leje på ledigbolig.dk. Danmarks bedste boligportal.' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700&display=swap);
 @import 'variables';
 @import '~bootstrap/scss/bootstrap';
 @import '~sweetalert2/src/sweetalert2';
@@ -7,3 +8,5 @@
 @import 'elements/navbar';
 @import 'elements/buttons';
 @import 'elements/transitions';
+@import 'common';
+@import 'property';

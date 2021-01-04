@@ -1,0 +1,162 @@
+.icon:not(.progress-indicator__icon).icon-xl {
+    display: block;
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+.icon:not(.progress-indicator__icon).icon-2xl {
+    display: block;
+    width: 2.3rem;
+    height: 2.3rem;
+}
+
+.icon:not(.progress-indicator__icon).icon-3xl {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.icon:not(.progress-indicator__icon).property-shareable {
+    background-image: url(/images/svg/icon-shareable_1.svg)
+}
+
+.icon:not(.progress-indicator__icon).property-shareable-alt {
+    background-image: url(/images/svg/icon-shareable_2.svg)
+}
+
+.icon:not(.progress-indicator__icon).property-balcony {
+    background-image: url(/images/svg/icon-balcony_1.svg)
+}
+
+.icon:not(.progress-indicator__icon).property-balcony-alt {
+    background-image: url(/images/svg/icon-balcony_2.svg)
+}
+
+
+
+.icon:not(.progress-indicator__icon).property-bathrooms {
+    background-image: url(/images/svg/icon-bathroom_1.svg)
+}
+
+.icon:not(.progress-indicator__icon).property-bathrooms-alt {
+    background-image: url(/images/svg/icon-bathroom_2.svg)
+}
+
+.icon:not(.progress-indicator__icon).property-elevator {
+    background-image: url(/images/svg/icon-elevator_1.svg)
+}
+
+.icon:not(.progress-indicator__icon).property-elevator-alt {
+    background-image: url(/images/svg/icon-elevator_2.svg)
+}
+
+.icon:not(.progress-indicator__icon).property-furnished {
+    background-image: url(/images/svg/icon-furnished_1.svg)
+}
+
+.icon:not(.progress-indicator__icon).property-furnished-alt {
+    background-image: url(/images/svg/icon-furnished_2.svg)
+}
+
+.icon:not(.progress-indicator__icon).property-garage {
+    background-image: url(/images/svg/icon-garage_1.svg)
+}
+
+.icon:not(.progress-indicator__icon).property-garage-alt {
+    background-image: url(/images/svg/icon-garage_2.svg)
+}
+
+.icon:not(.progress-indicator__icon).property-parking {
+    background-image: url(/images/svg/icon-parking_1.svg)
+}
+
+.icon:not(.progress-indicator__icon).property-parking-alt {
+    background-image: url(/images/svg/icon-parking_2.svg)
+}
+
+.icon:not(.progress-indicator__icon).property-pets {
+    background-image: url(/images/svg/icon-pets_1.svg)
+}
+
+.icon:not(.progress-indicator__icon).property-pets-alt {
+    background-image: url(/images/svg/icon-pets_2.svg)
+}
+
+.icon:not(.progress-indicator__icon).property-rooms {
+    background-image: url(/images/svg/icon-rooms_1.svg)
+}
+
+.icon:not(.progress-indicator__icon).property-rooms-alt {
+    background-image: url(/images/svg/icon-rooms_2.svg)
+}
+
+.icon:not(.progress-indicator__icon).property-size {
+    background-image: url(/images/svg/icon-roomsizesqm_1.svg)
+}
+
+.icon:not(.progress-indicator__icon).property-size-alt {
+    background-image: url(/images/svg/icon-roomsizesqm_2.svg)
+}
+
+.icon:not(.progress-indicator__icon).property-unfurnished {
+    background-image: url(/images/svg/icon-unfurnished_1.svg)
+}
+
+.icon:not(.progress-indicator__icon).property-unfurnished-alt {
+    background-image: url(/images/svg/icon-unfurnished_2.svg)
+}
+
+.property-fill{
+    background: #ffffff;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    border: 1px solid #28a745;
+    cursor:pointer;
+    position: relative;
+}
+.property-active{
+    position: absolute;
+    top: -4px;
+    right: 4px;
+    color: #fff;
+    font-size: 10px;
+}
+.property-fill.active{
+    background: #28a745;
+}
+.property-icon-mask{
+    -webkit-mask-size: cover !important;
+    mask-size: cover;
+    background-color:#28a745;
+}
+.property-icon-mask.active{
+    background-color:#fff;
+}
+.icon:not(.progress-indicator__icon).property-balcony-mask {
+    -webkit-mask: url(/images/svg/icon-balcony_1.svg) no-repeat 50% 50%;
+}
+.icon:not(.progress-indicator__icon).property-garage-mask {
+    -webkit-mask: url(/images/svg/icon-garage_1.svg) no-repeat 50% 50%;
+}
+.icon:not(.progress-indicator__icon).property-elevator-mask {
+    -webkit-mask: url(/images/svg/icon-elevator_1.svg) no-repeat 50% 50%;
+}
+.icon:not(.progress-indicator__icon).property-pets-mask {
+    -webkit-mask: url(/images/svg/icon-pets_1.svg) no-repeat 50% 50%;
+}
+.icon:not(.progress-indicator__icon).property-parking-mask {
+    -webkit-mask: url(/images/svg/icon-parking_1.svg) no-repeat 50% 50%;
+}
+.icon:not(.progress-indicator__icon).property-garden-mask {
+    -webkit-mask: url(/images/svg/icon-garden_2.svg) no-repeat 50% 50%;
+}
+.icon:not(.progress-indicator__icon).property-furnished-mask {
+    -webkit-mask: url(/images/svg/icon-furnished_1.svg) no-repeat 50% 50%;
+}
+.icon:not(.progress-indicator__icon).property-shareable-mask {
+    -webkit-mask: url(/images/svg/icon-shareable_2.svg) no-repeat 50% 50%;
+}
