@@ -130,3 +130,15 @@ p {
 .navbar {
     padding: 0;
 }
+
+@media screen and (min-width: 1024px) {
+	.header-top-pos {
+		margin-top: 60px;
+	}
+}
+.bg-gray {
+	background: #f7f7f7;
+}
+.bg-gray-small {
+	background: #fbfbfb;
+}

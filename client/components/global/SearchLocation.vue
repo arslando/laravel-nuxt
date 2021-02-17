@@ -8,6 +8,9 @@
       @keypress="onEnter($event)"
       placeholder="Indtast by eller postnummer"
       autocomplete="off"
+      onmouseup="this.select();"
+      @focus="onFocus"
+      @blur="onBlur"
       class="form-control form-control-small w-100"
     />
     <div
@@ -67,7 +70,8 @@ export default {
       searchTimer: null,
       searching: false,
       pause: 300,
-      searchKeyword: null
+      searchKeyword: null,
+      hideTimer: null
     };
   },
   props: {
@@ -75,6 +79,16 @@ export default {
     matchClass: { type: String, default: null }
   },
   methods: {
+    onFocus: function () {
+      if (this.hideTimer) {
+        clearTimeout(this.hideTimer);
+      }
+    },
+    onBlur: function () {
+      this.hideTimer = setTimeout(() => {
+        this.showDropdown = false;
+      }, this.pause);
+    },
     onEnter: function (event) {
       if (event.charCode === 13) {
         this.$parent.keyword_search(this.searchKeyword, true);
@@ -219,6 +233,19 @@ export default {
 };
 </script>
 <style scoped>
+.form-control {
+    outline: 0;
+    border-color: #ECECEC;
+    border-style: solid;
+    border-width: 1px;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 6px;
+    border-radius: 2px;
+    font-size: 14px;
+    height:50px;
+
+}
 .angucomplete-holder {
   position: relative;
 }
@@ -234,10 +261,6 @@ export default {
   position: absolute;
   background-color: #ffffff;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.2) !important;
-}
-.angucomplete-searching {
-  color: #acacac;
-  font-size: 14px;
 }
 .angucomplete-searching {
   color: #acacac;

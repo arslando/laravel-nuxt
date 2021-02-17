@@ -1,5 +1,5 @@
 <template>
-  <header class="transparent-header nav-on-top" v-bind:class="{'fixed-top' : fixedTop}">
+  <header class="transparent-header nav-on-top fixed-top fixed-top-new">
     <div class="main-nav xs-p-0 pt-0 pb-0">
       <div class="container">
         <div class="row">
@@ -8,10 +8,7 @@
               class="navbar navbar-expand-lg nav-secondary nav-primary-hover nav-line-active"
             >
               <a class="navbar-brand" href="/"
-                ><img
-                  class="nav-logo"
-                  :src="mainLogo"
-                  alt="ledigbolig logo"
+                ><img class="nav-logo" src="logo.png" alt="ledigbolig logo"
               /></a>
             </nav>
           </div>
@@ -41,30 +38,7 @@
 
 <script>
 export default {
-  name: "AppHeader",
-  mounted(){
-    window.addEventListener('scroll', this.onScroll);
-  },
-  beforeDestroy() {
-    window.removeEventListener("scroll", this.onScroll);
-  },
-  data(){
-    return {
-      fixedTop : false,
-      mainLogo : 'white_logo.png'
-    }
-  },
-  methods:{
-    onScroll(e){
-      if(window.top.scrollY >=150){
-        this.fixedTop = true;
-        this.mainLogo = 'logo.png';
-      } else {
-        this.fixedTop = false;
-        this.mainLogo = 'white_logo.png';
-      }
-    }
-  }
+  name: 'AppSecondHeader'
 };
 </script>
 <style lang="scss" scoped>
@@ -90,53 +64,42 @@ export default {
 .menu-item a.nav-link {
   color: #fff;
   font-size: 15px;
-  &:hover {
-        color: #000 !important;
-  }
+}
+header.fixed-top {
+  position: fixed !important;
+  top: -1px;
+  right: 0;
+  left: 0;
+  z-index: 991;
+  animation-duration: 1s;
+  animation-name: menu-sticky;
+  animation-timing-function: ease-in-out;
+  margin: 0;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+  border: none;
+}
+.fixed-top-new {
+  animation-duration: inherit !important;
+  animation-name: inherit !important;
+  animation-timing-function: unset !important;
+}
+.transparent-header-modern.fixed-top,
+.transparent-header.fixed-top {
+  /* background-color: var(--theme-dark-color); */
+  background-color: #fff;
+  padding: 0 !important;
 }
 .transparent-header.fixed-top .menu-item a {
-    color: #000;
+  color: #000;
+  &:hover {
+    color: #53b141;
+  }
 }
-
 .transparent-header.fixed-top .menu-item {
   border-bottom: 3px solid transparent;
   &:hover {
-border-bottom: 3px solid #1fc341;
+    border-bottom: 3px solid #1fc341;
   }
-    
 }
-@media screen and (min-width:992px) {
-    header.fixed-top .main-nav {
-		padding-top: 0 !important;
-		padding-bottom: 0 !important;
-	}
-  @keyframes menu-sticky {
-		0% {
-			margin-top: -150px;
-		}
-		50% {
-			margin-top: -90px;
-		}
-		100% {
-			margin-top: 0;
-		}
-	}
-    header.fixed-top {
-		position: fixed !important;
-		top: -1px;
-		right: 0;
-		left: 0;
-		z-index: 991;
-		animation-duration: 1s;
-		animation-name: menu-sticky;
-		animation-timing-function: ease-in-out;
-		margin: 0;
-		box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
-		border: none
-	}
-    .transparent-header-modern.fixed-top, .transparent-header.fixed-top {
-		background-color: #fff;
-		padding: 0 !important
-	}
-}
+
 </style>
